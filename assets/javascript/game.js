@@ -3,6 +3,8 @@ var targetNumber = Math.floor(Math.random() * 102) + 19;
 $("#number-to-guess").text(targetNumber);
 
 var counter = 0;
+var wins = 0;
+var losses = 0;
 
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
@@ -73,22 +75,25 @@ if (numberOption1) {
   counter += crystalValue;
 
   // All of the same game win-lose logic applies. So the rest remains unchanged.
-  alert("New score: " + counter);
+  // alert("New score: " + counter);
+  $("#userGuess").text(counter);
   });
 
-  function guessMatch (counter) {
+  guessMatch(counter);
 
-  console.log(counter);
+  function guessMatch (character) {
+
+  console.log(character);
   console.log(targetNumber);
 
-    if (counter = targetNumber) {
+    if (character = targetNumber) {
 
   alert("You win!");
   wins++;
   showWins();
   resetVariables();
 
-  } else if (counter > targetNumber) {
+  } else if (character > targetNumber) {
   alert("YOU LOSE! GOOD DAY SIR! (...or try again)");
   losses++;
   showLosses();
