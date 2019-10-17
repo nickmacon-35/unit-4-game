@@ -66,7 +66,8 @@ var numberOption3 = Math.floor(Math.random() * 12) + 1;
 var numberOption4 = Math.floor(Math.random() * 12) + 1;
 
 // Next we create an if statement to create different crystal images for every numberOption.
-if (numberOption1) {
+function resetPictures() { 
+  if (numberOption1) {
 
   // For each iteration, we will create an imageCrystal
   var imageCrystal = $("<img>");
@@ -86,13 +87,10 @@ if (numberOption1) {
   $("#crystals").append(imageCrystal);
   }
 
-  if (numberOption2) {
-    var imageCrystal = $("<img>");
-    imageCrystal.addClass("crystal-image");
-    imageCrystal.attr("src", "assets/images/crystal2.jpg");
-    imageCrystal.attr("data-crystalvalue", numberOption2);
-    $("#crystals").append(imageCrystal);
-    }
+    numberOption2 = $("<img>");
+    numberOption2.addClass("crystal-image");
+    numberOption2.attr("src", "assets/images/crystal2.jpg");
+   v
 
   if (numberOption3) {
     var imageCrystal = $("<img>");
@@ -109,48 +107,51 @@ if (numberOption1) {
     imageCrystal.attr("data-crystalvalue", numberOption4);
     $("#crystals").append(imageCrystal);
     }
+}
 
+  resetPictures();
 
   // This time, our click event applies to every single crystal on the page. Not just one.
   $(".crystal-image").on("click", function() {
 
-  // Determining the crystal's value requires us to extract the value from the data attribute.
-  // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-  // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+    // Determining the crystal's value requires us to extract the value from the data attribute.
+    // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+    // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
+    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
-  var crystalValue = ($(this).attr("data-crystalvalue"));
-  crystalValue = parseInt(crystalValue);
-  // We then add the crystalValue to the user's "counter" which is a global variable.
-  // Every click, from every crystal adds to the global counter.
-  counter += crystalValue;
+    var crystalValue = ($(this).attr("data-crystalvalue"));
+    crystalValue = parseInt(crystalValue);
+    // We then add the crystalValue to the user's "counter" which is a global variable.
+    // Every click, from every crystal adds to the global counter.
+    counter += crystalValue;
 
-  // All of the same game win-lose logic applies. So the rest remains unchanged.
-  // alert("New score: " + counter);
-  $("#userGuess").text(counter);
+    // All of the same game win-lose logic applies. So the rest remains unchanged.
+    // alert("New score: " + counter);
+    $("#userGuess").text(counter);
+    // });
+
+    guessMatch (counter);
+
+    function guessMatch (counter) {
+
+    console.log(counter);
+    console.log(targetNumber);
+
+      if (counter === targetNumber) {
+        alert("You win!");
+        wins++;
+        showWins();
+        resetVariables();
+    } 
+      
+      else if (counter > targetNumber) {
+    alert("YOU LOSE! GOOD DAY SIR! (...or try again)");
+    losses++;
+    showLosses();
+    resetVariables();
+    }
+    }
   });
-  
-  guessMatch(counter);
-
-  function guessMatch (character) {
-
-  console.log(character);
-  console.log(targetNumber);
-
-    if (character = targetNumber) {
-  alert("You win!");
-  wins++;
-  showWins();
-  resetVariables();
-  } 
-    
-    else if (character > targetNumber) {
-  alert("YOU LOSE! GOOD DAY SIR! (...or try again)");
-  losses++;
-  showLosses();
-  resetVariables();
-  }
-  }
 
   //Show total wins on page
   function showWins() {
@@ -164,12 +165,22 @@ if (numberOption1) {
 
   //Reset variables for next game
   function resetVariables () {
-  var numberOption1 = Math.floor(Math.random() * 12) + 1;
-  var numberOption2 = Math.floor(Math.random() * 12) + 1;
-  var numberOption3 = Math.floor(Math.random() * 12) + 1;
-  var numberOption4 = Math.floor(Math.random() * 12) + 1;
-  var targetNumber = Math.floor(Math.random() * 102) + 19;
+  numberOption1 = Math.floor(Math.random() * 12) + 1;
+  numberOption2 = Math.floor(Math.random() * 12) + 1;
+  numberOption3 = Math.floor(Math.random() * 12) + 1;
+  numberOption4 = Math.floor(Math.random() * 12) + 1;
+  targetNumber = Math.floor(Math.random() * 102) + 19;
+  counter = 0;
   console.log(targetNumber);
+  console.log(counter);
+  console.log(numberOption1);
+  console.log(numberOption2);
+  console.log(numberOption3);
+  console.log(numberOption4);
+  $("#number-to-guess").text(targetNumber);
+  $("#userGuess").text(counter);
+  // $("#crystals").html("");
+  // resetPictures();
   }
 
 </script>
