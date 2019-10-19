@@ -1,33 +1,35 @@
 #box-1 {
     position: absolute;
-    top: 700px;
+    top: 580px;
+    left: 50px;
     padding: 5px;
   }
 
   #box-2 {
     position: absolute;
-    top: 700px;
-    left: 120px;
+    top: 580px;
+    left: 170px;
     padding: 5px;
   }
 
   #box-3 {
     position: absolute;
-    top: 700px;
-    left: 240px;
+    top: 580px;
+    left: 290px;
     padding: 5px;
   }
 
   #box-4 {
     position: absolute;
-    top: 700px;
-    left: 360px;
+    top: 580px;
+    left: 410px;
     padding: 5px;
   }
 
 h1 {
     float: left;
     position: absolute;
+    font-size: 24px;
     background-color: blue;
     color: #4aaaa5;
     padding: 50px 20px 50px 20px;
@@ -35,7 +37,8 @@ h1 {
 
 .container {
     position: absolute;
-    top: 200px;
+    top: 150px;
+    left: 50px;
     margin: 0 auto;
     width: 500px;
     height: auto;
@@ -47,20 +50,23 @@ h1 {
     .numGuess {
         float: left;
         position: absolute;
+        font-size: 18px;
         background-color: green;
         color: lightgreen;
-        top: 580px;
+        top: 460px;
+        left: 50px;
         width: 250px;
         height: 100px;
         padding-left: 10px;
+        padding-top: 10px
         }
     
     .score {
         position: absolute;
-        top: 580px;
+        top: 460px;
         margin: 0 auto;
         width: 100px;
-        left: 300px;
+        left: 330px;
         height: 100px;
         background-color: yellow;
         color: black;
@@ -68,11 +74,14 @@ h1 {
 
     .user {
         position: absolute;
-        top: 820px;
+        font-size: 18px;
+        top: 700px;
+        left: 50px;
         width: 250px;
         height: 100px;
         margin-bottom: 10px;
         padding-left: 10px;
+        padding-top: 10px;
         background-color: red;
         color: rgb(240, 179, 179);
     }
