@@ -1,8 +1,27 @@
-.crystal-image {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    top: 680px;
+#box-1 {
+    position: absolute;
+    top: 700px;
+    padding: 5px;
+  }
+
+  #box-2 {
+    position: absolute;
+    top: 700px;
+    left: 120px;
+    padding: 5px;
+  }
+
+  #box-3 {
+    position: absolute;
+    top: 700px;
+    left: 240px;
+    padding: 5px;
+  }
+
+  #box-4 {
+    position: absolute;
+    top: 700px;
+    left: 360px;
     padding: 5px;
   }
 
